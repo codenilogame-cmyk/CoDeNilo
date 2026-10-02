@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CoDeNilo – La aventura comienza con una línea de código</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Barra superior (visible en mapa y juego) -->
+<header id="barra" hidden>
+  <span class="marca" id="marca" role="button" tabindex="0">CoDeNilo</span>
+  <button id="b-mapa">🗺️ MAPA</button>
+  <button id="b-guia">📖 GUÍA DE CÓDIGO</button>
+  <span class="dato">XP: <span id="d-xp">0</span></span>
+  <span class="dato">PUNTUACIÓN: <span id="d-pts">0</span></span>
+  <button id="b-son" class="sec" aria-pressed="true">🔊 Sonido</button>
+  <button id="b-mus" class="sec" aria-pressed="true">🎵 Música</button>
+</header>
+
+<!-- Pantalla inicial -->
+<section id="s-titulo" class="pantalla">
+  <canvas id="c-titulo" width="480" height="320" aria-label="Nilo frente a un atardecer en el bosque"></canvas>
+  <div class="menu">
+    <h1>CoDeNilo</h1>
+    <p>La aventura comienza con una línea de código.</p>
+    <button id="t-jugar" class="ok">COMENZAR AVENTURA</button>
+    <button id="t-guia">GUÍA DE CÓDIGO</button>
+    <button id="t-stats">ESTADÍSTICAS</button>
+    <button id="t-op">OPCIONES</button>
+    <button id="t-cred">CRÉDITOS</button>
+  </div>
+</section>
+
+<!-- Mapa de aventura (se dibuja desde script.js) -->
+<section id="s-mapa" class="pantalla" hidden><div id="mapa"></div></section>
+
+<!-- Escenario + misión + editor -->
+<section id="s-juego" class="pantalla" hidden>
+  <div class="escena">
+    <canvas id="lienzo" width="480" height="320" aria-label="Escenario del juego"></canvas>
+    <div id="dialogo" hidden><p id="dtxt"></p><button id="dsig" class="ok">Siguiente</button></div>
+  </div>
+  <aside class="panel">
+    <h2 id="nom"></h2>
+    <p id="mision"></p>
+    <p id="objetivo"></p>
+    <div id="vars"></div>
+    <div id="ayudaNivel"></div>
+    <div class="editor" aria-label="Editor de código">
+      <div id="nums">1</div>
+      <div class="cod"><pre id="hl" aria-hidden="true"></pre>
+        <textarea id="ed" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Escribe tu código aquí"></textarea></div>
+    </div>
+    <div id="msg" role="status" aria-live="polite">Escribe tus órdenes y pulsa EJECUTAR.</div>
+    <div class="botones">
+      <button id="b-run" class="ok">▶ EJECUTAR</button>
+      <button id="b-reset">↻ REINICIAR</button>
+      <button id="b-ayuda">💡 AYUDA</button>
+    </div>
+  </aside>
+</section>
+
+<!-- Ventana genérica: guía, estadísticas, opciones, créditos, resultados -->
+<div id="modal" class="modal" hidden>
+  <div class="caja" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <h2 id="mt"></h2><div id="mb"></div><div id="mbt" class="botones"></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
